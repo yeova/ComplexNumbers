@@ -1,0 +1,932 @@
+<!doctype html>
+<html>
+
+<head>
+	<!-- meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- title -->
+	<title>Комплексный анализ</title>
+
+	<!-- load style -->
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/moon.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!--Fonts-->
+	<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		let link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!-- !importnat style -->
+	<style>
+		.formula {
+			margin-bottom: 10px !important;
+		}
+
+		.offscreen {
+			clip: rect(1px 1px 1px 1px);
+			clip: rect(1px, 1px, 1px, 1px);
+			height: 1px;
+			overflow: hidden;
+			position: absolute;
+			white-space: nowrap;
+			width: 1px;
+		}
+
+		.offscreen:focus {
+			position: relative;
+			clip: auto;
+			width: auto;
+			height: auto;
+			overflow: auto;
+		}
+
+		input {
+			width: 50px;
+		}
+
+		label {
+			float: left;
+		}
+
+		.operations input {
+			width: 100%;
+		}
+	</style>
+
+</head>
+
+<body>
+	<!-- Разметка презентации -->
+	<div class="reveal">
+
+		<!-- Кнопка для включения и отключения субтитр -->
+		<div class="chalkboard-button" id="toggle-chalkboard" style="position: fixed; z-index: 30; font-size: 22px;
+				left: 60px; bottom: 32px;">
+			<a href="#" id="noteswitch" title="Включение/отключение
+					заметок к слайду">
+				<i class="fa fa-sticky-note" aria-label="
+					Заметки к слайду"></i>
+			</a>
+		</div>
+
+		<div class="slides">
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						Комплексный анализ
+						==================
+
+						Note:
+						Комплексный анализ
+						<!-- Легенда для скринридеров -->
+						<span class="offscreen">
+							Для перемещения между слайдами следует 
+							пользоваться клавишами:
+							<kbd>Space</kbd>
+							<kbd>Left</kbd>
+							<kbd>Right</kbd>.
+							Для включения заметок, используйте клавишу
+							<kbd>D</kbd>
+						</span>	
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Комплексные числа 
+
+						Note: Комплексные числа 
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Комплексное число
+
+						<b>Комплексное число</b> — это число вида $a+b\cdot i$,
+						где $a$,$b$ — вещественные числа, <br>$i$ — мнимая единица, 
+						то есть число, для которого выполняется 
+						равенство: $i^2=-1$.
+						<br> Множество комплексных чисел обычно обозначается символом $\mathbb{C}$.
+						
+						Note: Определение комплексного числа
+						
+					</script>
+			</section>
+
+			<section data-background="image/complex0.jpg" data-menu-title="Изображение Иерархия чисел">
+				<aside class="notes">
+					Изображение "Иерархия чисел"
+				</aside>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Формы записи комплексных чисел
+
+						Note: Формы записи комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Алгебраическая форма :
+						$$
+						z=x+y\cdot i
+						$$
+
+						#### Тригонометрическая форма :
+						$$
+						z=r(cos\phi+i\cdot sin\phi)
+						$$
+
+						#### Показательная форма :
+						$$
+						z=re^{i\cdot \phi}
+						$$
+
+						Note: Формы записи комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Алгебраическая форма
+						$$
+						z=x+y\cdot i,
+						$$
+						$$
+						x,y\in{\mathbb{R}}, i^2=-1
+						$$
+						
+						Величина $x$ называется <b>вещественной</b> частью числа $z$,
+						а величина $y$ называется <b>мнимой</b> частью числа $z$.
+
+						Note:
+						Алгебраическая форма комплексного числа
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Тригонометрическая форма
+
+						Если вещественную $x$ и мнимую $y$ части
+						комплексного числа выразить через <b>модуль</b> $r = |z|$ и <b>аргумент</b> $\phi$,
+						то всякое комплексное число $z$, кроме нуля, можно записать в тригонометрической форме:
+					
+						$$
+							z=r(cos\phi+i\cdot sin\phi)
+						$$
+
+						Для нуля аргумент $\phi$ не опеределен; для ненулевого числа $\phi$
+						определяется с точностью до целого кратного $2\pi$.
+
+						Note:
+						Тригонометрическая форма комплексного числа					
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Показательная форма
+						
+						Фундаментальное значение в комплексном анализе имеет формула Эйлера:
+						$$e^{i\cdot \phi}=cos\phi+i\cdot sin\phi,$$ 
+						где $e$ число Эйлера, $cos$, $sin$ — функции косинуса и синуса, 
+						$e^{i\cdot \phi}$ — комплексная экспонента, продолжающая вещественную на случай комплексного показателя степени.
+						Применяя эту формулу к тригонометрической форме, получим показательную форму комплексного числа:
+						$$
+							z=re^{i\cdot \phi}
+						$$
+
+						Note:
+						Показательная форма комплексного числа
+					</script>
+			</section>
+
+			<section>
+				<!--convert-->
+				<h3>Конвертирование комплексного числа</h3>
+				<div>
+					<label> Алгебраическая Re:<input type="text" value="" id="algX"> Im:<input type="text" value=""
+							id="algY"></label><br>
+					<output id="alg_show"></output> <br>
+					<label> Тригонометрическая r:<input type="text" value="" id="trigonX"> &#966;:<input type="text"
+							value="" id="trigonY"></label><br>
+					<output id="trigon_show"></output><br>
+					<label> Показательная r:<input type="text" value="" id="expX"> &#966;:<input type="text" value=""
+							id="expY"></label><br>
+					<output id="exp_show"></output>
+				</div>
+				<aside class="notes">
+					Программа, производящая конвертирование комплексного числа из одной формы записи в другие
+				</aside>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Комплексная плоскость
+
+						Note: Комплексная плоскость
+					</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Комплексная плоскость
+						
+						<b>Комплексная плоскость</b> — это геометрическое представление множества <br>комплексных чисел $\mathbb{C}$.
+						<br>Точка двумерной вещественной плоскости $\mathbb {R} ^{2}$, имеющая координаты $(x,y),$ 
+						изображает комплексное число $z=x+y\cdot i$, где 
+						<br>$x=\mathrm {Re} z$ — вещественная часть <br>комплексного числа,
+						<br>$y=\mathrm {Im} z$ — его мнимая часть.
+
+						Note:
+						Определение комплексной плоскости 
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Геометрическое представление комплексного числа
+	
+						Note: Геометрическое представление комплексного числа
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					#### Соответствие комплексным числам векторов на комплексной плоскости
+					Можно также сказать, что комплексному числу $z=x+yi$ соответствует <b>радиус-вектор</b> 
+					с координатами $(x,y).$ 
+					<br>Алгебраические операции над комплексными числами переносятся на операции 
+					над соответствующими им точками или векторами. 
+					
+					Note: Соответствие комплексным числам векторов на комплексной плоскости
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					#### Различные соотношения между комплексными числами получают наглядное изображение <br>на комплексной плоскости :
+					* сложению комплексных чисел соответствует сложение радиус-векторов;
+					* умножению на комплексное число соответствует поворот и растяжение радиус-вектора;
+					* корни n-й степени из числа располагаются в вершинах правильного n-угольника с центром в начале координат.
+					
+					Note: Изображение соотношений на комплексной плоскости
+					</script>
+			</section>
+
+			<section>
+				<!--vec graph-->
+				<h3>Построение вектора на комплексной плоскости</h3>
+				<label>Комплексное число в алгебраической форме:<input type="text" value="" id="vector"></label>
+				<div id="plot" style="height: 400px; margin-top: 87px; "></div>
+				<aside class="notes">
+					Программа построения вектора на комплексной плоскости
+				</aside>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Основные арифметические операции с комплексными числами
+	
+						Note: Основные арифметические операции с комплексными числами
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Свойства арифметических операций комплексных чисел
+						Четыре арифметические операции для комплексных чисел имеют те же свойства, 
+						что и аналогичные операции с вещественными числами. В отличие от последних, 
+						комплексные числа нельзя сравнивать на больше/меньше; доказано, 
+						что нет способа распространить порядок, заданный для вещественных чисел, 
+						на все комплексные так, чтобы порядок был согласован с арифметическими операциями.
+						
+						Note: Свойства арифметических операций комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Равные комплексные числа
+						Два комплексных числа $z_1=x_1+i\cdot y_1$ и $z_2=x_2+i\cdot y_2$ называются <b>равными</b> 
+						в том и только том случае, если $x_1=x_2,$ $y_1=y_2.$
+						
+						Note: Определение равных комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Сложение комплексных чисел :
+						$(a+b\cdot i)+(c+d\cdot i)=(a+c)+(b+d)\cdot i$
+			
+						#### Вычитание комплексных чисел :
+						$(a+b\cdot i)-(c+d\cdot i)=(a-c)+(b-d)\cdot i$
+
+						Note: Сложение и вычитание комплексных чисел 
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Умножение комплексных чисел
+	
+						Note: Умножение комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Умножение комплексных чисел :
+						$$(a+b\cdot i)\cdot (c+d\cdot i)=ac+bc\cdot i+ad\cdot i+bd\cdot i^2=$$
+						$$=(ac+bd\cdot i)^2+(bc+ad)\cdot i=(ac-bd)+(bc+ad)\cdot i$$
+
+						Note: Умножение комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Правила для степеней мнимой единицы :
+						$$i^2=-1;$$
+						$$i^3=-i;$$
+						$$i^4=1;$$
+						$$i^5=i;$$
+						и т. д.
+
+						Note: Правила для степеней мнимой единицы
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Деление комплексных чисел
+	
+						Note: Деление комплексных чисел
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Сопряжённое число
+						Комплексное число $\overline z=x-y\cdot i$ называется <b>сопряжённым</b> к комплексному числу $z=x+y\cdot i$.
+						
+						Note: Определение сопряжённого комплексному числу
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Обратное число
+						Для каждого комплексного числа $a+b\cdot i$, кроме нуля, можно найти <b>обратное к нему</b> комплексное число $\frac{1}{a+b\cdot i}$. 
+						<br>Для этого умножим числитель и знаменатель дроби на число $a-b\cdot i$, комплексно сопряжённое знаменателю:
+						$$
+						\frac{1}{a+b\cdot i}=\frac{a-b\cdot i}{(a+b\cdot i)(a-b\cdot i)}=\frac{a-b\cdot i}{a^2+b^2}=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\cdot i
+						$$
+						
+						Note: Определение обратного к комплексному числу
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Деление комплексных чисел
+						Определим результат деления комплексного числа $a+b\cdot i$ на ненулевое число $c+d\cdot i$:
+						$$
+						\frac{a+b\cdot i}{c+d\cdot i}=\frac{(a+b\cdot i)(c-d\cdot i)}{(c+d\cdot i)(c-d\cdot i)}=\frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}\cdot i
+						$$
+						Как и для вещественных чисел, деление можно заменить умножением делимого на число, обратное к делителю. 
+
+						Note: Деление комплексных чисел
+					</script>
+			</section>
+
+			<section>
+				<!--operations-->
+				<h3>Основные арифметические операции с комплексными числами</h3>
+				<div style="display: flex; justify-content: space-between;" class="operations">
+					<label>Первое число<input type="text" value="" id="first"></label>
+					<label> знак<input type="text" value="" id="sign"></label>
+					<label>Второе число<input type="text" value="" id="second"></label>
+				</div>
+				<button onclick="operations()">Вычислить</button><br>
+				<output id="result"></output>
+				<aside class="notes">
+					Программа, производящая операции сложения, вычитания, умножения и деления комплексных чисел
+				</aside>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Другие операции
+						Для комплексных чисел определены также извлечение корня, возведение в степень и логорифмирование.
+						Note: Другие операции
+					</script>
+			</section>
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						## Исходный код
+	
+						Note: Исходный код
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Конвертирование комплексного числа
+						Программа, производящая конвертирование комплексного числа из одной формы записи в другие состоит из трех основных частей,
+						в зависимости от того, в какой форме (алгебраической,тригонометрической или показательной) введено исходное число.
+						<br>Для создания этой программы мы используем условные операторы.
+
+						Note: Логика программы, производящей конвертирование комплексного числа из одной формы записи в другие
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					#### Часть программы, производящая конвертирование комплексного числа из алгебраической формы записи в другие	
+					```		
+					let conversion = () => {
+						if (document.querySelector('#algX').value > 0 && document.querySelector('#algY').value > 0) {
+							let x = Number(document.querySelector('#algX').value);
+							let y = Number(document.querySelector('#algY').value);
+							let r = math.format(Math.sqrt(x * x + y * y), { precision: 2 });
+							let phi;
+							if (x > 0) {
+								phi = Math.atan(y / x);
+							}
+							if (x < 0 && y >= 0) {
+								phi = Math.atan(y / x) + Math.PI;
+							}
+							if (x < 0 && y < 0) {
+								phi = Math.atan(y / x) - Math.PI;
+							}
+							if (x === 0 && y > 0) {
+								phi = Math.PI / 2;
+							}
+							if (x === 0 && y < 0) {
+								phi = -Math.PI / 2;
+							}
+							phi = math.format(phi, { precision: 2 });
+							if (y < 0) {
+								document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}${y}•i` + '< /span >';
+							}
+							else {
+								document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}${y}•i` + '< /span >';
+							}
+							document.querySelector('#trigonshow').innerHTML = '< span style="float:left" >' + `${r}(cos(${phi})+i•sin(${phi}))` + '< /span >';
+							document.querySelector('#expshow').innerHTML = '< span style="float:left" >' + `${r}e< sup >${phi}< /sup >` + '< /span >';
+						}
+					}
+						```
+					<aside class="notes">
+						Исходный код программы, производящей конвертирование комплексного числа из одной формы записи в другие
+					</aside>
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+					#### Часть программы, производящая конвертирование комплексного числа из тригонометрической формы записи в другие
+					```
+					let conversion = () => {
+						if (document.querySelector('#trigonX').value > 0 && document.querySelector ('#trigonY').value > 0) {
+							let r = Number(document.querySelector('#trigonX').value);
+							let phi = Number(document.querySelector('#trigonY').value);
+							let x = Math.cos(phi) * r;
+							let y = Math.sin(phi) * r;
+							x = math.format(x, { precision: 2 });
+							y = math.format(y, { precision: 2 });
+							document.querySelector('#trigonshow').innerHTML = '< span style="float:left" >' + `${r}(cos(${phi})+i*sin(${phi}))` + '< /span >';
+							if (y < 0) {
+								document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}${y}*i` + '< /span>';
+							}
+							else {
+								document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}+${y}*i` + '< /span>';
+							}
+							document.querySelector('#expshow').innerHTML = '< span style="float:left" >' + `${r}e< sup >${phi}< /sup >` + '< /span>';
+						}
+					}
+					```
+					<aside class="notes">
+						Исходный код программы, производящей конвертирование комплексного числа из одной формы записи в другие
+					</aside>
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						#### Часть программы, производящая конвертирование комплексного числа из показательной формы записи в другие
+						```
+						let conversion = () => {
+							if (document.querySelector('#expX').value > 0 && document.querySelector('#expY').value > 0) {
+								let r = Number(document.querySelector('#expX').value);
+								let phi = Number(document.querySelector('#expY').value);
+								let x = Math.cos(phi) * r;
+								let y = Math.sin(phi) * r;
+								x = math.format(x, { precision: 2 });
+								y = math.format(y, { precision: 2 });
+								document.querySelector('#expshow').innerHTML = '< span style="float:left" >' + `${r}e< sup >${phi}< /sup >` + '< /span >';
+								if (y < 0) {
+									document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}${y}•i` + '< /span >';
+								}
+								else {
+									document.querySelector('#algshow').innerHTML = '< span style="float:left" >' + `${x}+${y}•i` + '< /span >';
+								}
+								document.querySelector('#trigonshow').innerHTML = '< span style="float:left" >' + `${r}(cos(${phi})+i•sin(${phi}))` + '< /span >';
+							}
+						}
+						```
+						Note: Исходный код программы, производящей конвертирование комплексного числа из одной формы записи в другие
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Построение вектора на комплексной плоскости
+						```
+						//Программа построения вектора на комплексной плоскости
+						let buildVector = () => {
+							let compNum = math.complex(document.querySelector('#vector').value);
+							let x = math.parse('x');
+							let func = String(compNum.im / compNum.re) + 'x';
+							let vecCompile = math.compile(math.parse(func).toString());
+							let xValues;
+							if (compNum.re >= 0) {
+								xValues = math.range(0, compNum.re + 1, 1).toArray();
+							}
+							else {
+								xValues = math.range(compNum.re, 1, 1).toArray();
+							}
+				
+							let yValues = xValues.map((x) => {
+								return vecCompile.evaluate({ x });
+							});
+				
+							let plot = {
+								x: xValues,
+								y: yValues,
+								type: 'scatter',
+							}
+							Plotly.newPlot('plot', [plot]);
+						}
+
+						```
+						Note: Исходный код программы построения вектора на комплексной плоскости
+					</script>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Основные арифметические операции с комплексными числами
+
+						```
+						//Программа, производящая операции сложения, вычитания, умножения и деления комплексных чисел
+						function operations() {
+							let a = math.complex(document.querySelector('#first').value);
+							let b = math.complex(document.querySelector('#second').value);
+							let x;
+							let y;
+							if (document.querySelector('#sign').value === '+') {
+								x = a.re + b.re;
+								y = a.im + b.im;
+							}
+							if (document.querySelector('#sign').value === '-') {
+								x = a.re - b.re;
+								y = a.im - b.im;
+							}
+							if (document.querySelector('#sign').value === '*') {
+								x = a.re * b.re - a.im * b.im;
+								y = a.re * b.im + a.im * b.re;
+							}
+							if (document.querySelector('#sign').value === '/') {
+								x = (a.re * b.re + a.im * b.im) / (b.re * b.re + b.im * b.im);
+								y = (b.re * a.im - a.re * b.im) / (b.re * b.re + b.im * b.im);
+							}
+							if (x === undefined || y === undefined || document.querySelector('#sign').value === undefined) {
+								document.querySelector('#result').innerHTML = 'error';
+							}
+							else {
+								if (y < 0) {
+									document.querySelector('#result').innerHTML = `${x}${y}i`;
+								}
+								else {
+									document.querySelector('#result').innerHTML = `${x}+${y}i`;
+								}
+							}
+		}
+						```
+						Note: Исходный код программы, производящей операции сложения, вычитания, умножения и деления комплексных чисел
+					</script>
+			</section>
+
+			<section data-background="image/complex2.jpg" data-menu-title="Изображение Get real">
+				<aside class="notes">
+					Изображение "Get real"
+				</aside>
+			</section>
+
+			<section data-background="image/complex4.jpg" data-menu-title="Изображение imaginary friend">
+				<aside class="notes">
+					Изображение "imaginary friend"
+				</aside>
+			</section>
+
+			<section data-background="image/complex1.jpg" data-menu-title="Изображение i love math">
+				<aside class="notes">
+					Изображение "i love math"
+				</aside>
+			</section>
+
+			<section data-markdown data-separator-notes="^Note:">
+				<script type="text/template">
+						### Благодарю за внимание! 
+						Note: Заключительный слайд
+					</script>
+			</section>
+		</div>
+	</div>
+
+	<!-- load js -->
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/lib.js"></script>
+	<!-- Библиотека для математики -->
+	<script src="lib/js/math.min.js"></script>
+	<!-- Библиотека для математики -->
+	<script src="lib/js/algebrite.bundle-for-browser.js"></script>
+	<!-- Библиотека для рисования графиков -->
+	<script src="lib/js/plotly.min.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+
+			// save slide
+			history: true,
+			slideNumber: true,
+			touch: true,
+
+			// show katex error
+			math: {
+				notificationsEnabled: true,
+			},
+
+			menu: {
+				side: 'left', //Расположение меню
+				numbers: true, //Нумерация слайдов
+				markers: true, //Маркер посещения
+				titleSelector: 'h1, h2, h3, h4, h5, h6', //Заголовки, отображаемые в меню
+				useTextContentForMissingTitles: true, //Если заголовка нет, то подставляем первые слова слайда
+				hideMissingTitles: false, //Если заголовка нет, то скрываем слайд из меню
+				transitions: true, //Установить меню анимации
+				openButton: true, //Скрыть кнопку меню
+				keyboard: true, //Открытие меню по кнопке m
+			},
+
+			// load dependencies
+			dependencies: [
+				{
+					// tex
+					src: 'plugin/math-katex/math-katex.js',
+					async: true,
+					callback: () => {
+						// solve problem with katex 
+						let section = document.querySelectorAll('section script');
+						section.forEach((item, i) => {
+							section[i].innerHTML = section[i].innerHTML
+								.replace(/\\/g, '\\\\')
+								.replace(/_/g, '\\_')
+								.replace(/\{/g, '\\\{')
+								.replace(/\}/g, '\\\}');
+						});
+					},
+				}, {
+					//markdown
+					src: 'plugin/markdown/marked.js',
+				}, {
+					src: 'plugin/markdown/markdown.js',
+					async: true,
+				}, {
+					//Menu
+					src: 'plugin/menu/menu.js',
+					async: true
+				}, {
+					//notes
+					src: 'plugin/notes/notes.js',
+					async: true
+				}, {
+					// highlight syntax
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: () => {
+						//Костыль для совместной работы katex и markdown
+						let code = document.querySelectorAll('code');
+						code.forEach((item, i) => {
+							code[i].innerHTML = code[i].innerHTML
+								.replace(/\\{/g, '{')
+								.replace(/\\}/g, '}');
+						});
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+
+		let showNodes = () => {
+			Reveal.configure({
+				showNotes: (
+					Reveal.getConfig().showNotes ?
+						false : true
+				)
+			});
+			return false;
+		}
+
+		//Программа, производящая конвертирование комплексного числа из одной формы записи в другие
+		let conversion = () => {
+			if (document.querySelector('#algX').value > 0 && document.querySelector('#algY').value > 0) {
+				let x = Number(document.querySelector('#algX').value);
+				let y = Number(document.querySelector('#algY').value);
+				let r = math.format(Math.sqrt(x * x + y * y), { precision: 2 });
+				let phi;
+				if (x > 0) {
+					phi = Math.atan(y / x);
+				}
+				if (x < 0 && y >= 0) {
+					phi = Math.atan(y / x) + Math.PI;
+				}
+				if (x < 0 && y < 0) {
+					phi = Math.atan(y / x) - Math.PI;
+				}
+				if (x === 0 && y > 0) {
+					phi = Math.PI / 2;
+				}
+				if (x === 0 && y < 0) {
+					phi = -Math.PI / 2;
+				}
+				phi = math.format(phi, { precision: 2 });
+
+				if (y < 0) {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}${y}&#8226;i` + '</span>';
+				}
+				else {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}+${y}&#8226;i` + '</span>';
+				}
+
+				document.querySelector('#trigon_show').innerHTML = '<span style="float:left">' + `${r}(cos(${phi})+i&#8226;sin(${phi}))` + '</span>';
+				document.querySelector('#exp_show').innerHTML = '<span style="float:left">' + `${r}e<sup>${phi}</sup>` + '</span>';
+
+			}
+			if (document.querySelector('#trigonX').value > 0 && document.querySelector('#trigonY').value > 0) {
+				let r = Number(document.querySelector('#trigonX').value);
+				let phi = Number(document.querySelector('#trigonY').value);
+				let x = Math.cos(phi) * r;
+				let y = Math.sin(phi) * r;
+				x = math.format(x, { precision: 2 });
+				y = math.format(y, { precision: 2 });
+
+				document.querySelector('#trigon_show').innerHTML = '<span style="float:left">' + `${r}(cos(${phi})+i&#8226;sin(${phi}))` + '</span>';
+				if (y < 0) {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}${y}&#8226;i` + '</span>';
+				}
+				else {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}+${y}&#8226;i` + '</span>';
+				}
+				document.querySelector('#exp_show').innerHTML = '<span style="float:left">' + `${r}e<sup>${phi}</sup>` + '</span>';
+			}
+			if (document.querySelector('#expX').value > 0 && document.querySelector('#expY').value > 0) {
+				let r = Number(document.querySelector('#expX').value);
+				let phi = Number(document.querySelector('#expY').value);
+				let x = Math.cos(phi) * r;
+				let y = Math.sin(phi) * r;
+				x = math.format(x, { precision: 2 });
+				y = math.format(y, { precision: 2 });
+
+				document.querySelector('#exp_show').innerHTML = '<span style="float:left">' + `${r}e<sup>${phi}</sup>` + '</span>';
+				if (y < 0) {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}${y}&#8226;i` + '</span>';
+				}
+				else {
+					document.querySelector('#alg_show').innerHTML = '<span style="float:left">' + `${x}+${y}&#8226;i` + '</span>';
+				}
+				document.querySelector('#trigon_show').innerHTML = '<span style="float:left">' + `${r}(cos(${phi})+i&#8226;sin(${phi}))` + '</span>';
+			}
+		}
+
+		//Программа, производящая операции сложения, вычитания, умножения и деления комплексных чисел
+		function operations() {
+			let a = math.complex(document.querySelector('#first').value);
+			let b = math.complex(document.querySelector('#second').value);
+			let x;
+			let y;
+			if (document.querySelector('#sign').value === '+') {
+				x = a.re + b.re;
+				y = a.im + b.im;
+			}
+			if (document.querySelector('#sign').value === '-') {
+				x = a.re - b.re;
+				y = a.im - b.im;
+			}
+			if (document.querySelector('#sign').value === '*') {
+				x = a.re * b.re - a.im * b.im;
+				y = a.re * b.im + a.im * b.re;
+			}
+			if (document.querySelector('#sign').value === '/') {
+				x = (a.re * b.re + a.im * b.im) / (b.re * b.re + b.im * b.im);
+				y = (b.re * a.im - a.re * b.im) / (b.re * b.re + b.im * b.im);
+			}
+			if (x === undefined || y === undefined || document.querySelector('#sign').value === undefined) {
+				document.querySelector('#result').innerHTML = 'error';
+			}
+			else {
+				if (y < 0) {
+					document.querySelector('#result').innerHTML = `${x}${y}i`;
+				}
+				else {
+					document.querySelector('#result').innerHTML = `${x}+${y}i`;
+				}
+			}
+		}
+
+		//Программа построения вектора на комплексной плоскости
+		let buildVector = () => {
+			let compNum = math.complex(document.querySelector('#vector').value);
+			let x = math.parse('x');
+			let func = String(compNum.im / compNum.re) + 'x';
+			let vecCompile = math.compile(math.parse(func).toString());
+			let xValues;
+			if (compNum.re >= 0) {
+				xValues = math.range(0, compNum.re + 1, 1).toArray();
+			}
+			else {
+				xValues = math.range(compNum.re, 1, 1).toArray();
+			}
+
+			let yValues = xValues.map((x) => {
+				return vecCompile.evaluate({ x });
+			});
+
+			let plot = {
+				x: xValues,
+				y: yValues,
+				type: 'scatter',
+			}
+			Plotly.newPlot('plot', [plot]);
+		}
+
+		//Запускаем программы только после полной загрузки
+		window.onload = () => {
+
+		//Открываем заметки или по кнопке или по клавише D
+			document.querySelector('#noteswitch').onclick = showNodes;
+			Reveal.configure({
+				keyboard: {
+					68: showNodes
+					}
+					});
+
+		//Делаем слайды инклюзивными, заменив заголовок
+		$('h3').each((i, j) => {
+			$(i).html(`
+			<span class="offscreen">Заголовок слайда.</span>
+			${$(i).text()}
+			<span class="offscreen">.</span>
+			`)
+			});
+
+		//Делаем слайды инклюзивными, добавив окончание слайда
+		$('aside').after(`<span class="offscreen">
+		Конец слайда. Для продолжения нажмите
+		<kbd>Space</kbd>
+		</span>`);
+
+		document.querySelector('#algX').onkeyup = conversion;
+		document.querySelector('#algY').onkeyup = conversion;
+		document.querySelector('#trigonX').onkeyup = conversion;
+		document.querySelector('#trigonY').onkeyup = conversion;
+		document.querySelector('#expX').onkeyup = conversion;
+		document.querySelector('#expY').onkeyup = conversion;
+		document.querySelector('#vector').onkeyup = buildVector;
+		}
+	
+	</script>
+</body>
+
+</html>
